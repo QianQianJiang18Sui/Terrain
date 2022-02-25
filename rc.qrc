@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>terrain.frag</file>
+        <file>cube.vert</file>
+        <file>cube.frag</file>
+        <file>terrain.vert</file>
+        <file>axis.frag</file>
+        <file>axis.vert</file>
+        <file>Gridline.frag</file>
+        <file>Gridline.vert</file>
+        <file>img/layer_1.png</file>
+        <file>img/layer_2.png</file>
+        <file>img/layer_3.png</file>
+        <file>line.frag</file>
+        <file>line.vert</file>
+        <file>triangle_strip.frag</file>
+        <file>triangle_strip.vert</file>
+    </qresource>
+</RCC>

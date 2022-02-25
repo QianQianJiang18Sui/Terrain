@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TerrainWidget</class>
+ <widget class="QWidget" name="TerrainWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>地形</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <row>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>海山</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>海沟</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>阶梯</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>海底山脉</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>水体</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QTableWidget" name="tableWidget_2">
+         <row>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>新建列</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>均匀水体</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>渐变水体</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>海洋峰</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>涡型</string>
+          </property>
+         </item>
+         <item row="4" column="0">
+          <property name="text">
+           <string>内波型</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>海底底质</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QTableWidget" name="tableWidget_3">
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>泥沙</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>海洋环境</string>
+      </attribute>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QTableWidget" name="tableWidget_4">
+         <row>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </column>
+         <item row="0" column="0">
+          <property name="text">
+           <string>洋流</string>
+          </property>
+         </item>
+         <item row="1" column="0">
+          <property name="text">
+           <string>传播损失面</string>
+          </property>
+         </item>
+         <item row="2" column="0">
+          <property name="text">
+           <string>声线轨迹</string>
+          </property>
+         </item>
+         <item row="3" column="0">
+          <property name="text">
+           <string>三维声场</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
