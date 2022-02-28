@@ -17,6 +17,7 @@
 #include "terrain.h"
 #include "gridline.h"
 #include "line.h"
+#include "Text2D.h"
 
 #include <QImage>
 
@@ -69,6 +70,9 @@ void WidgetTerrain::initializeGL()
     m_pXAxis = new CLine();
     m_pZAxis = new CLine();
 
+    //m_pText = new CText2D();
+    //m_pText->setText(QString("AAAAAAAAAA"), 100, QColor(255,255,255,255));
+
     m_graphicsList.push_back(m_pCube);
     m_graphicsList.push_back(m_pXAxis);
     m_graphicsList.push_back(m_pTerrain);
@@ -101,7 +105,9 @@ void WidgetTerrain::paintGL()
 
     //清空状态
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-    drawVersion1();
+    m_pAxis->drawElement(m_camera);
+    //drawVersion1();
+    //m_pText->drawElement(m_camera);
     //drawVersion2();
     update();
 }
@@ -242,14 +248,12 @@ void WidgetTerrain::drawVersion1()
     {
         //绘制 先绘制地形，再绘制cube，包围，否则blend混合错误
         m_pTerrain->drawElement(m_camera);
-        m_pAxis->drawElement(m_camera);
-
 
         m_pXAxis->drawElement(m_camera);
         m_pZAxis->drawElement(m_camera);
         m_pGridline->drawElement(m_camera);
 
-        //m_pCube->drawElement(m_camera);
+        m_pCube->drawElement(m_camera);
     }
 }
 

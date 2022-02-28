@@ -15,5 +15,7 @@
         <file>line.vert</file>
         <file>triangle_strip.frag</file>
         <file>triangle_strip.vert</file>
+        <file>text_2D.vert</file>
+        <file>text_2D.frag</file>
     </qresource>
 </RCC>

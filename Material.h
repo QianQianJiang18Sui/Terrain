@@ -2,6 +2,14 @@
 #define MATERIAL_H
 
 #include <QVector3D>
+#include <QOpenGLTexture>
+#include <QPainter>
+#include <QFont>
+#include <QTextOption>
+#include <QPen>
+#include <QFontMetricsF>
+#include <QRect>
+#include <QSize>
 
 enum Element_Type
 {
@@ -18,9 +26,9 @@ enum Element_Type
 
 enum ElementDrawMode
 {
-    MT2D  = 1,   //±í²ã  ÒÔÆÁÄ»×ø±ê¶¨Î»°´ÏÈºó»æÖÆË³Ğòµş·ÅÓÚÆÁÄ»×îÉÏ²ã¡£
-    MT3DM = 2,   //3DÄ£ĞÍ  Ä£ĞÍ×ø±êÏµµÄÈıÎ¬¿Õ¼ä¡£
-    MT3DW = 3,   //3DÆÁÄ»  ÆÁÄ»×ø±êÏµµÄÈıÎ¬¿Õ¼ä¡£
+    MT2D  = 1,   //è¡¨å±‚  ä»¥å±å¹•åæ ‡å®šä½æŒ‰å…ˆåç»˜åˆ¶é¡ºåºå æ”¾äºå±å¹•æœ€ä¸Šå±‚ã€‚
+    MT3DM = 2,   //3Dæ¨¡å‹  æ¨¡å‹åæ ‡ç³»çš„ä¸‰ç»´ç©ºé—´ã€‚
+    MT3DW = 3,   //3Då±å¹•  å±å¹•åæ ‡ç³»çš„ä¸‰ç»´ç©ºé—´ã€‚
 };
 
 enum ElementSelectState
@@ -34,9 +42,9 @@ enum ElementSelectState
 
 struct Material
 {
-    QVector3D ambient;       ///»·¾³¹â
-    QVector3D diffuse;		 ///Âş·´Éä
-    QVector3D specular;      ///¾µÃæ¹â
+    QVector3D ambient;       ///ç¯å¢ƒå…‰
+    QVector3D diffuse;		 ///æ¼«åå°„
+    QVector3D specular;      ///é•œé¢å…‰
     float     shininess;
 };
 
@@ -52,9 +60,9 @@ struct DefaultMaterial : Material
     }
 };
 
-/*ÎïÌå²ÄÖÊ±í http://devernay.free.fr/cours/opengl/materials.html */
+/*ç‰©ä½“æè´¨è¡¨ http://devernay.free.fr/cours/opengl/materials.html */
 
-///ÂÌ±¦Ê¯
+///ç»¿å®çŸ³
 struct Emerald : Material
 {
     Emerald()
@@ -66,7 +74,7 @@ struct Emerald : Material
     }
 };
 
-///Óñ
+///ç‰
 struct Jade : Material
 {
     Jade()
@@ -78,7 +86,7 @@ struct Jade : Material
     }
 };
 
-///ºÚê×Ê¯
+///é»‘æ›œçŸ³
 struct Obsidian : Material
 {
     Obsidian()
@@ -90,7 +98,7 @@ struct Obsidian : Material
     }
 };
 
-///ÕäÖé
+///çç 
 struct Pearl : Material
 {
     Pearl()
@@ -102,7 +110,7 @@ struct Pearl : Material
     }
 };
 
-///ºì±¦Ê¯
+///çº¢å®çŸ³
 struct Ruby : Material
 {
     Ruby()
@@ -114,7 +122,7 @@ struct Ruby : Material
     }
 };
 
-///ÂÌÉ«Ïğ½º
+///ç»¿è‰²æ©¡èƒ¶
 struct GreenRubber : Material
 {
     GreenRubber()
@@ -126,7 +134,8 @@ struct GreenRubber : Material
     }
 };
 
-
+QSize           calImageSize(const QString& text, int textPixelSize, QFont font = QFont());
+QOpenGLTexture* genTexture(const QString &text, int textPixelSize = 10, QColor textColor = QColor(255,255,0,255), QFont font = QFont());
 
 #endif //MATERIAL_H
 

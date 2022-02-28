@@ -7,12 +7,15 @@ CONFIG += c++11
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
 include(./MathTool/MathTool.pri)
+include(./Graphics/Graphics.pri)
 
 SOURCES += \
     GraphicObject.cpp \
     GraphicsModel.cpp \
     Material.cpp \
+    Text2D.cpp \
     axis.cpp \
     cube.cpp \
     gridline.cpp \
@@ -32,6 +35,7 @@ HEADERS += \
     GraphicObject.h \
     GraphicsModel.h \
     Material.h \
+    Text2D.h \
     axis.h \
     cube.h \
     gridline.h \

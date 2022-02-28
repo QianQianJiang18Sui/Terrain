@@ -101,7 +101,7 @@ void main(void)
 
     vec3 viewDir = normalize(viewPos - world_pos);
     vec3 color = CalculateDirectionalLight(light, normal, viewDir, material);
-    //color += CalcPointLight(pt_light, normal, world_pos, viewDir, material);
+    color += CalcPointLight(pt_light, normal, world_pos, viewDir, material);
 
     fragColor = vec4(color, 1.0);
 

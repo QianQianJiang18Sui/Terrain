@@ -4,7 +4,6 @@
 #include "triangle_strip.h"
 #include "MathTool.h"
 
-
 Terrain::Terrain(CGraphicObject *parent)
 {
     m_pShader = new Shader(":/terrain.vert", ":/terrain.frag");
@@ -16,9 +15,6 @@ Terrain::Terrain(CGraphicObject *parent)
     m_pGradient->setColorStopAt(0.65, QColor(0, 255, 255));
     m_pGradient->setColorStopAt(0.85, QColor(0, 50, 255));
     m_pGradient->setColorStopAt(1.0, QColor(0, 0, 100));
-
-//    m_pGradient->setColorStopAt(0, QColor(0, 0, 255));
-//    m_pGradient->setColorStopAt(1, QColor(255, 0, 0));
 
     m_pGradient->createColorBuffer();
 }
@@ -240,8 +236,6 @@ void Terrain::loadFromImage(QImage heightImage)
         m_pNormal = nullptr;
     }
 
-    qDebug() << poslist.size() << index.size();
-
     m_pVertex = new GLfloat[m_ptCount * 3];
     for (auto i = 0; i < m_ptCount; ++i)
     {
@@ -252,7 +246,6 @@ void Terrain::loadFromImage(QImage heightImage)
 
     //计算法线
     auto triAngleCount = m_ptCount / 3;
-    qDebug() << triAngleCount;
     CMathTool::CaculateNormalsAccordToVertex(m_pNormal, m_pVertex, triAngleCount);
     //m_pIndex = new unsigned int[m_indexCount];
     //memcpy(m_pIndex, index.data(), sizeof(unsigned int)* index.size());
@@ -359,8 +352,6 @@ void Terrain::CalFaces()
     std::vector<float> maxZPts;
 
     auto minY = m_minY - 1;
-    qDebug() << m_maxY;
-
     for (int i = 0; i < m_ptCount; ++i)
     {
         auto x = m_pVertex[i * 3 + 0];

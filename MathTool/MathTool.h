@@ -3,6 +3,7 @@
 
 #include <QtMath>
 #define epsilon 0.0000001
+
 class CMathTool
 {
 public:

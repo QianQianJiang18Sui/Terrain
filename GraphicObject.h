@@ -28,6 +28,9 @@ public:
 
 public:
 
+    virtual void        getAABB(double AABB[]);
+
+
     virtual QMatrix4x4  getTransformMatrix();
     virtual QMatrix4x4  getModelViewMatrix();
     virtual QMatrix4x4  getViewProMatrix();
@@ -36,16 +39,16 @@ public:
     virtual void        setModelMatrix(QMatrix4x4 ma);
 
     virtual void        drawElement(camera*  camera);
-    virtual void        getAABB(double AABB[]);
+
 
     virtual void        setScale(double val);
 
     virtual int         getDrawOrder() { return m_drawOrder;}
     virtual void        setDrawOrder(int val) { m_drawOrder = val; }
 
-
-
     virtual QString     getClassName() { return m_class_name;}
+
+    virtual void        CalBoundBox();
 
 public:
 
@@ -60,6 +63,9 @@ public:
     void        SetBlendOn() { m_Blend = true; }
     void        SetBlendOff() { m_Blend = false; }
 
+    void        SetElementPos(const QVector3D& pos);
+    QVector3D   GetElementPos() { return m_ElementPos;}
+
     //bool        getVisible() { return m_bVisible;}
     //void        setVisible(bool bVsisible) { m_bVisible = bVsisible ;}
 
@@ -71,7 +77,10 @@ public:
 
     //设置材质
     void	SetMaterial(Material material);
+    void    Win2ObjCurMT(camera* pCamera, QVector3D win, QVector3D &obj);
+    void    Obj2WinCurMT(camera* pCamera, QVector3D obj, QVector3D &win);
 
+    void    setProMa(QMatrix4x4 mat) { m_proMa = mat;}
 protected:
 
     //bool        m_bVisible = true;
@@ -110,21 +119,23 @@ protected:
 protected:
     //这里都是临时变量，绘制之前设置
     ElementDrawMode     m_DrawMode = MT3DM;
-    ElementSelectState  m_ElementSelectState = STATE_NORMAL;//图元是选中状态还是敏感状态，不同与上一个状态
 
-    bool                m_boundingComputed = false;//包围框重置
-    bool                m_bBoundBox = false;//存在包围框，主要是处理没有绘制元素的图元，比如该图元内部的图形被删除干净。
-    bool                m_bBoundBoxSwitch = true;//外部设置是否启用，包围框开关
-    bool                m_bSensitive = true; //图元能不能被敏感，模式为TRUE，可以敏感
-    bool                m_Blend = false;//图元是否开启混合
+    //图元是选中状态还是敏感状态，不同与上一个状态
+    ElementSelectState  m_ElementSelectState = STATE_NORMAL;
+
+    bool                m_boundingComputed = false; //包围框重置
+    bool                m_bBoundBox = false;        //存在包围框，主要是处理没有绘制元素的图元，比如该图元内部的图形被删除干净。
+    bool                m_bBoundBoxSwitch = true;   //外部设置是否启用，包围框开关
+    bool                m_bSensitive = true;        //图元能不能被敏感，模式为TRUE，可以敏感
+    bool                m_Blend = false;            //图元是否开启混合
 
 
-    QColor              m_SensitiveColor;//敏感色
-    QColor              m_SelectedColor;//选中色
+    QColor              m_SensitiveColor;           //敏感色
+    QColor              m_SelectedColor;            //选中色
     QColor              m_ElementColor = QColor(0, 0, 255);//图元颜色
 
-    QVector3D           m_ElementPos;//图元位置
-    QVector3D           m_boundboxpts[8];//包围框
+    QVector3D           m_ElementPos;               //图元位置
+    QVector3D           m_boundboxpts[8];           //包围框
 
 
 protected:

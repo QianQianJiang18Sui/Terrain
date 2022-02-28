@@ -71,13 +71,13 @@ void CTriAnlgeStrip::updateModelData()
 
     m_pCore->glGenBuffers(1, &m_VBO);
     m_pCore->glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-    m_pCore->glBufferData(GL_ARRAY_BUFFER, m_ptCount * 3 * sizeof(GL_FLAT), m_pVertex, GL_STATIC_DRAW);
+    m_pCore->glBufferData(GL_ARRAY_BUFFER, m_ptCount * 3 * sizeof(GL_FLOAT), m_pVertex, GL_STATIC_DRAW);
     m_pCore->glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)* 3,  0);
     m_pCore->glEnableVertexAttribArray(0);
 
     m_pCore->glGenBuffers(1, &m_NBO);
     m_pCore->glBindBuffer(GL_ARRAY_BUFFER, m_NBO);
-    m_pCore->glBufferData(GL_ARRAY_BUFFER, m_ptCount * 3 * sizeof(GL_FLAT), m_pNormal, GL_STATIC_DRAW);
+    m_pCore->glBufferData(GL_ARRAY_BUFFER, m_ptCount * 3 * sizeof(GL_FLOAT), m_pNormal, GL_STATIC_DRAW);
     m_pCore->glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(GL_FLOAT)* 3,  0);
     m_pCore->glEnableVertexAttribArray(1);
 }

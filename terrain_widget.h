@@ -17,6 +17,7 @@ class Axis;
 class CGridline;
 class CLine;
 class Terrain;
+class CText2D;
 
 class WidgetTerrain : public QOpenGLWidget, protected QOpenGLFunctions_3_3_Core
 {
@@ -66,6 +67,7 @@ private:
 
     CLine*          m_pXAxis = nullptr;
     CLine*          m_pZAxis = nullptr;
+    CText2D*        m_pText = nullptr;
 
 
 

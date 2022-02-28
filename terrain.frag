@@ -83,6 +83,15 @@ void main(void)
     light.diffuse = vec3(0.5, 0.5, 0.5);
     light.specular = vec3(1.0, 1.0, 1.0);
 
+    PointLight pt_light;
+    pt_light.position = viewPos;
+    pt_light.ambient = vec3(0.05, 0.05, 0.05);
+    pt_light.diffuse = vec3(0.8f, 0.8f, 0.8f);
+    pt_light.specular = vec3(1.0, 1.0, 1.0);
+    pt_light.constant = 1.0;
+    pt_light.linear = 0.09;
+    pt_light.quadratic = 0.032;
+
     Material material;
     material.shininess = 0.6;
     material.ambient   = vec3(0.45f,    0.45f,      0.45f);
@@ -91,9 +100,9 @@ void main(void)
 
 
     vec3 viewDir = normalize(viewPos - world_pos);
-    //vec3 newnormal = vec3(0, 1, 0);
-    //vec3 color = CalculateDirectionalLight(light, newnormal, viewDir, material);
     vec3 color = CalculateDirectionalLight(light, normal, viewDir, material);
+    color += CalcPointLight(pt_light, normal, world_pos, viewDir, material);
+
     fragColor = vec4(color, 1.0);
 
 

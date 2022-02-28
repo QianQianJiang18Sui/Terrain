@@ -99,13 +99,52 @@ void CGraphicObject::getAABB(double AABB[])
 
 void CGraphicObject::setScale(double val)
 {
-    m_scale = val / m_scale;
-    m_modelMa.scale(m_scale);
+    m_scale = val;
+}
+
+void CGraphicObject::CalBoundBox()
+{
+
+}
+
+void CGraphicObject::SetElementPos(const QVector3D &pos)
+{
+    m_ElementPos = pos;
+    CalBoundBox();
 }
 
 void CGraphicObject::UpdateModel()
 {
+    m_bNeedUpdate = true;
+}
 
+void CGraphicObject::SetMaterial(Material material)
+{
+    m_material = std::move(material);
+}
+
+void CGraphicObject::Win2ObjCurMT(camera *pCamera, QVector3D win, QVector3D &obj)
+{
+    int width = pCamera->m_windowWidth;
+    int height = pCamera->m_windowHeight;
+    QRect view(0, 0, width, height);
+
+    auto res = win.unproject(m_modelMa, m_proMa, view);
+    obj.setX(res.x());
+    obj.setY(res.y());
+    obj.setZ(res.z());
+}
+
+void CGraphicObject::Obj2WinCurMT(camera *pCamera, QVector3D obj, QVector3D &win)
+{
+    int width = pCamera->m_windowWidth;
+    int height = pCamera->m_windowHeight;
+    QRect view(0, 0, width, height);
+
+    auto res = obj.project(m_modelMa, m_proMa, view);
+    win.setX(res.x());
+    win.setY(res.y());
+    win.setZ(res.z());
 }
 
 void CGraphicObject::resetOpenGLBuffer()
